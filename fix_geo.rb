@@ -22,8 +22,8 @@ def fix_bbox(bbox_string, layer, bad_file)
         if list_nums[0].to_f>0 && list_nums[0].to_f<180
             if !list_nums[1].include?"."
                 list_nums[1]=list_nums[1] + ".001"
-            else size < 3
-                if
+            else
+                if size < 3
                     list_nums[1]=list_nums[1] + "001"
                 else
                     list_nums[1]=list_nums[1]+"1"
