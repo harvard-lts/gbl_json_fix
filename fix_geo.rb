@@ -88,10 +88,10 @@ for file in file_list
     bad_stuff=[]
     json_file=JSON.load(File.read(file))
     if json_file.key?("solr_geom")
-        json_file["solr_geom"]=fix_bbox(json_file['solr_geom'], json_file['layer_id_s'], bad_stuff)
-        if bad_stuff.include?(json_file['layer_id_s'])
+        json_file["solr_geom"]=fix_bbox(json_file['solr_geom'], json_file['layer_slug_s'], bad_stuff)
+        if bad_stuff.include?(json_file['layer_slug_s'])
 	        puts 'writing new file'
-            puts json_file['layer_id_s']
+            puts json_file['layer_slug_s']
             File.open(file, 'w') { |f| f.write(JSON.pretty_generate(json_file)) }
         end
     end
